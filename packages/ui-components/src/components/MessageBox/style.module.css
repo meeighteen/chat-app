@@ -1,0 +1,21 @@
+.messageBox {
+  width: 100% auto;
+  height: auto;
+  padding: 5px;
+  border: none;
+  border-radius: 20px;
+  background-color: lightblue;
+  align-items: center;
+  align-content: center;
+}
+
+.messageBox__ingoing{
+  background-color: lightgreen;
+}
+
+.paragraphMessage {
+  padding: 1px 5px;
+  margin: 0;
+  font-family: sans-serif, Arial;
+  font-size: 1.2rem;
+}

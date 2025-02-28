@@ -1,0 +1,21 @@
+.messageChat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileAvatarIcon {
+  height: 35px;
+  width: 35px;
+}
+
+.likeIcon {
+  cursor: pointer;
+}
+
+.likeIcon__active {
+  stroke: red;
+  fill: red;
+  stroke-linecap: round;
+  overflow: hidden;
+}

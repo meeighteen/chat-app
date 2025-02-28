@@ -1,0 +1,17 @@
+{
+  "name": "chat-app",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "packageManager": "pnpm@8",
+  "dependencies": {
+    "vercel": "^41.3.0"
+  }
+}

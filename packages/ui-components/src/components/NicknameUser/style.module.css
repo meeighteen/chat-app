@@ -1,0 +1,29 @@
+.nicknameModal{
+    width: 300px;
+    height: 200px;
+    background-color: #f0f7f2;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    font-family: var(--font-family);
+}
+
+.sendNicknameBtn{
+    margin-top: 10px;
+    width: 100px;
+    background-color: #218aba;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+
+    color: white;
+}
+
+.sendNicknameBtn:hover{
+    background-color: #084680;
+}

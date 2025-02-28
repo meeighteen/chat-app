@@ -1,0 +1,52 @@
+.containerChat {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.chatRoom {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+}
+
+.bodyChatRoom {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding: 10px;
+  gap: 3px;
+  z-index: -1;
+}
+
+.sendButtonIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.footerWindowChat {
+  display: flex;
+  padding: 5px;
+  gap: 3px;
+}

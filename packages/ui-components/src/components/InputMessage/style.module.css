@@ -1,0 +1,31 @@
+.footerWindowChat {
+  display: flex;
+  padding: 5px;
+  gap: 3px;
+}
+
+.inputMessage {
+  display: flex;
+  width: 100%;
+  /* height: 15px; */
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  outline: none;
+
+  font-family: var(--font-family);
+  font-size: 14px;
+}
+
+.sendButtonIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+}
