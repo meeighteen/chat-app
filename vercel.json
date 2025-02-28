@@ -11,8 +11,5 @@
       "src": "/(.*)",
       "dest": "apps/chat-world/$1"
     }
-  ],
-  "settings": {
-    "framework": "nextjs"
-  }
+  ]
 }
