@@ -6,7 +6,6 @@ import {
   SettingsRoom,
   InputMessage,
   SendMessageIcon,
-  NicknameUser,
 } from "@packages/ui-components";
 import { useChat } from "@/app/context/ChatContext";
 import { socket } from "@/app/utils/socket";

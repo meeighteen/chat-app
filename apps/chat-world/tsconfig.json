@@ -19,9 +19,16 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@packages/ui-components": ["../../packages/ui-components"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/ChatRoom/chatRoom.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/components/ChatRoom/chatRoom.tsx"
+  ],
   "exclude": ["node_modules"]
 }
