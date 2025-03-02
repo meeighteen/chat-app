@@ -7,9 +7,6 @@
       "packages/*"
     ]
   },
-  "devDependencies": {
-    "typescript": "^5.0.0"
-  },
   "dependencies": {
     "vercel": "^41.3.0"
   }
