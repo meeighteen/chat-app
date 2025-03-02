@@ -1,0 +1,9 @@
+{
+    "build": {
+      "env": {
+        "PNPM_HOME": "/vercel/.pnpm",
+        "COREPACK_ENABLE_STRICT": "0"
+      }
+    }
+  }
+  
