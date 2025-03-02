@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/components/ChatRoom/chatRoom.tsx"
+    // "src/app/components/ChatRoom/chatRoom.tsx"
   ],
   "exclude": ["node_modules"]
 }
