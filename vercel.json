@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "projects": {
     "default": {
       "rootDirectory": "apps/chat-world"
@@ -11,5 +10,7 @@
       "use": "@vercel/next"
     }
   ],
-  "outputDirectory": "apps/chat-world/.next"
+  "routes": [
+    { "src": "/(.*)", "dest": "apps/chat-world/$1" }
+  ]
 }
