@@ -1,9 +1,4 @@
 {
-  "projects": {
-    "default": {
-      "rootDirectory": "apps/chat-world"
-    }
-  },
   "builds": [
     {
       "src": "apps/chat-world/package.json",
