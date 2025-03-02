@@ -9,7 +9,7 @@ type LoginProps = {
 };
 
 export const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
-  const { userId, setUserId, joinRoom } = useSocket();
+  const { setUserId, joinRoom } = useSocket();
   const [nickname, setNickname] = useState("");
   const handleOnChangeNickname = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value);

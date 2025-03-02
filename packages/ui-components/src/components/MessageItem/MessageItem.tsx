@@ -17,7 +17,7 @@ const TypeMessage: Record<string, string> = {
 };
 
 export const MessageItem: React.FC<MessageItemProps> = ({
-  message: { id, text, type },
+  message: { id, text, type = "" },
   onClickLikeIcon,
 }) => {
   const [isLikedMessage, setIsLikedMessage] = useState(false);

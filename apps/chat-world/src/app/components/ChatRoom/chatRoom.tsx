@@ -47,9 +47,10 @@ export const ChatRoom: React.FC = () => {
   useEffect(() => {
     socket.on("message", ({ user, text }) => {
       console.log(`message from ${user} to ${userID}`);
-      const type = userID === user ? "outgoing" : "ingoing";
+      const type = userID === user ? "outgoing" : "ingoing" ;
       sendMessage(user, text, type);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages, userID]);
 
   const handleOnClickLikeIcon = () => {};
@@ -62,7 +63,11 @@ export const ChatRoom: React.FC = () => {
         </div>
       ) : (
         <div className={Style.chatRoom}>
-          <SettingsRoom username={roomID} />
+          <SettingsRoom username={userID} handleButtonMenu={function (): void {
+              throw new Error("Function not implemented.");
+            } } handleButtonSearch={function (): void {
+              throw new Error("Function not implemented.");
+            } } />
           <div className={Style.bodyChatRoom}>
             {messages
               .slice()
