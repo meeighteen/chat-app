@@ -5,11 +5,5 @@
       "src": "apps/chat-world/package.json",
       "use": "@vercel/next"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "apps/chat-world/$1"
-    }
   ]
 }
