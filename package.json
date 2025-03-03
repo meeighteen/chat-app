@@ -7,10 +7,10 @@
       "packages/*"
     ]
   },
+  "scripts": {
+    
+  },
   "dependencies": {
     "vercel": "^41.3.0"
-  },
-  "engines": {
-    "pnpm": "8.x"
   }
 }

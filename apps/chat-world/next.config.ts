@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  distDir: "apps/chat-world/.next",
+  reactStrictMode: true,
+  experimental: {
+    externalDir: true,
+  },
 };
 
 export default nextConfig;

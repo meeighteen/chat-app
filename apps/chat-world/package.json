@@ -6,14 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel:prod": "vercel --prod",
+    "deploy:prod": "npm-run-all build vercel:prod"
   },
   "dependencies": {
+    "@packages/ui-components": "workspace:*",
     "next": "15.1.7",
+    "npm-run-all": "^4.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "socket.io-client": "^4.8.1",
-    "@packages/ui-components": "workspace:*"
+    "vercel": "^33.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

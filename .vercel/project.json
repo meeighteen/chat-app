@@ -1,11 +1,1 @@
-{
-  "build": {
-    "env": {
-      "PNPM_HOME": "/vercel/.pnpm",
-      "COREPACK_ENABLE_STRICT": "0"
-    }
-  },
-  "settings": {
-    "rootDirectory": "apps/chat-world"
-  }
-}
+{"projectId":"prj_PurESRKIdSPxqMSC4onxvtFeHwh9","orgId":"team_m57q5wShG9x0WKeAXg3Ku5GT"}

@@ -1,11 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "apps/chat-world/package.json",
+      "src": "apps/chat-world/next.config.ts",
       "use": "@vercel/next"
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "apps/chat-world/$1" }
+    {
+      "src": "/(.*)",
+      "dest": "apps/chat-world/$1"
+    }
   ]
 }
