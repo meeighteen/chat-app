@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "https://chat-world-server.onrender.com"; // Replace with your backend URL
+const SOCKET_URL = process.env.API_SOCKET_SERVER;
 
 export const socket = io(SOCKET_URL, {
   path: "/socket",
