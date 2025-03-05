@@ -32,7 +32,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const leaveRoom = (roomId: string, userId: string) => {
-    socket.emit("joinRoom", {
+    socket.emit("leaveRoom", {
       user: userId,
       room: roomId,
     });

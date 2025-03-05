@@ -1,8 +1,16 @@
-body{
-    margin: 0;
-    /* height: 100%; */
+body {
+  margin: 0;
+  touch-action: manipulation;
+  /* height: 100%; */
 }
 
-:root{
-    --font-family: sans-serif, Arial;
+:root {
+  --font-family: sans-serif, Arial;
+}
+
+/* button{
+    -webkit-tap-highlight-color: transparent;
+} */
+button:focus:not(:focus-visible) {
+  -webkit-tap-highlight-color: transparent;
 }

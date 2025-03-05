@@ -44,7 +44,7 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({
           <span>🇵🇪</span>
         </div>
       </div>
-      <button className={Style.leaveRoomBtn} onClick={() => onLeaveRoom}>
+      <button className={Style.leaveRoomBtn} onClick={() => onLeaveRoom} disabled>
         Leave room
       </button>
     </div>

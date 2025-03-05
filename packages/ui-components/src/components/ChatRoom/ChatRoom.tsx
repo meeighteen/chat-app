@@ -1,4 +1,4 @@
-import { ComponentProps, useState } from "react";
+import { ComponentProps, useEffect, useRef, useState } from "react";
 import { Message } from "../../types/ChatRoom";
 import { SendMessageIcon } from "../icons-svg/sendMessageSVG";
 import { InputMessage } from "../InputMessage/InputMessage";
@@ -18,11 +18,10 @@ interface ChatRoomProps {
 export const ChatRoom: React.FC<ChatRoomProps> = ({
   messages,
   roomName,
-  ProfileMenuProps: { username, isConnected, profileStatusText, onLeaveRoom },
+  ProfileMenuProps,
   emitMessage,
 }) => {
   const [input, setInput] = useState("");
-
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const handleChangeInputMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,32 +47,34 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
   };
 
   const handleSendMessage = (input: string) => {
-    emitMessage(roomName, username, input);
-  };
-
-  const handleLeaveRoom = () => {
-    onLeaveRoom(roomName, username);
+    emitMessage(roomName, ProfileMenuProps.username, input);
   };
 
   const handleOnClickLikeIcon = () => {
     console.log("Like icon clicked");
   };
 
-  const handleButtonMenu = () => {
-    setIsOpenMenu(!isOpenMenu);
-  };
-
   const handleButtonSearch = () => {};
 
   return (
     <>
-      <div className={Style.chatRoom}>
+      <div
+        className={cx({
+          [Style.chatRoom]: true,
+          [Style.blurEffect]: isOpenMenu,
+        })}
+      >
         <SettingsRoom
           roomName={roomName}
-          handleButtonMenu={handleButtonMenu}
           handleButtonSearch={handleButtonSearch}
+          ProfileMenuProps={ProfileMenuProps}
+          isOpenMenuProfile={isOpenMenu}
+          setIsOpenMenuProfile={setIsOpenMenu}
         />
-        <div className={Style.bodyChatRoomContainer}>
+        <div className={cx({
+          [Style.bodyChatRoomContainer]: true,
+          [Style.blurEffect]: isOpenMenu,
+        })}>
           <div className={Style.bodyChatRoom}>
             {messages
               .slice()
@@ -85,20 +86,6 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
                   onClickLikeIcon={handleOnClickLikeIcon}
                 />
               ))}
-          </div>
-
-          <div
-            className={cx({
-              [Style.menuProfile]: true,
-              [Style.isExpanded]: isOpenMenu,
-            })}
-          >
-            <ProfileMenu
-              onLeaveRoom={handleLeaveRoom}
-              isConnected={isConnected}
-              username={username}
-              profileStatusText={profileStatusText}
-            />
           </div>
         </div>
 

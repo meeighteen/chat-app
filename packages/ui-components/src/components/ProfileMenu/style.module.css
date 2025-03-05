@@ -24,6 +24,10 @@
   border-radius: 15px;
 }
 
+.profileName{
+  font-weight: 600;
+}
+
 .status {
   display: block;
   position: relative;
@@ -67,6 +71,7 @@
 .profileStatusText {
   display: flex;
   align-items: center;
+  font-style: italic;
 }
 
 .messageBoxIcon {

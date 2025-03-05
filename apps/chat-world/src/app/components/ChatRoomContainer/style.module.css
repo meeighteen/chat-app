@@ -7,13 +7,6 @@
   height: 100vh;
 }
 
-.chatRoom {
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  background-color: #000;
-}
 
 .login {
   display: flex;
@@ -22,39 +15,4 @@
   border-radius: 15px;
   align-items: center;
   justify-content: center;
-}
-
-.bodyChatRoom {
-  display: flex;
-  flex-direction: column-reverse;
-  height: 100%;
-  padding: 10px;
-  margin: 5px;
-  gap: 3px;
-  overflow-y: auto;
-  background-color: #f5f5f5;
-  border-radius: 20px;
-  border: none;
-  scrollbar-width: thin;
-}
-
-.sendButtonIcon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: #fff;
-}
-
-.footerWindowChat {
-  display: flex;
-  padding: 5px;
-  gap: 3px;
-  background: linear-gradient(180deg, #0a0a0a 100%, #2d2d2d 0%);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 }
