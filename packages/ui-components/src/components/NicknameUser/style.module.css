@@ -1,29 +1,35 @@
-.nicknameModal{
-    width: 300px;
-    height: 200px;
-    background-color: #f0f7f2;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    gap: 10px;
-    font-family: var(--font-family);
+.nicknameModal {
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(180deg, #2b2a93, #861d85);;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  gap: 20px;
+  font-family: var(--font-family);
 }
 
-.sendNicknameBtn{
-    margin-top: 10px;
-    width: 100px;
-    background-color: #218aba;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    cursor: pointer;
-
-    color: white;
+.nicknameLabel {
+  color: white;
+  font-size: 18px;
 }
 
-.sendNicknameBtn:hover{
-    background-color: #084680;
+.sendNicknameBtn {
+  width: 100px;
+  background-color: #0b0b0b;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 14px;
+
+  color: white;
+}
+
+.sendNicknameBtn:hover {
+  background-color: #2d2d2d;
 }

@@ -1,20 +1,19 @@
 .profileMenuSection {
-  width: 300px;
-  gap: 20px;
   display: flex;
   flex-direction: column;
+  /* width: 250px; */
+  gap: 20px;
   font-family: var(--font-family);
 }
 
 .profileCard {
   display: flex;
-  height: 320px;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   background-color: #f5f5f5;
   border: none;
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   gap: 10px;
 }
@@ -47,7 +46,7 @@
 
   cursor: pointer;
 
-  font-family: sans-serif, Arial;
+  font-family: var(--font-family);
   font-size: 1.2rem;
 
   color: black;

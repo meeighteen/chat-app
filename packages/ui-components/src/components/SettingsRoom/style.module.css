@@ -3,6 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  background: linear-gradient(180deg, #2d2d2d 0%, #000000 100%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .leftTopWindow {
@@ -10,13 +13,14 @@
   align-items: center;
 }
 
-.boxUserName {
+.boxRoomName {
   display: flex;
   padding: 10px;
   align-items: center;
   font-weight: 500;
   font-family: monospace, sans-serif;
   font-size: 18px;
+  color: aliceblue;
 }
 
 .status {

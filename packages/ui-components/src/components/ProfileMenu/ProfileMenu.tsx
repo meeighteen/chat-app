@@ -6,7 +6,7 @@ type ProfileMenuProps = {
   username: string;
   isConnected: boolean;
   profileStatusText: string;
-  onLeaveRoom: () => void;
+  onLeaveRoom: (roomID: string, userID: string) => void;
 };
 
 export const ProfileMenu: React.FC<ProfileMenuProps> = ({
@@ -44,7 +44,7 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({
           <span>🇵🇪</span>
         </div>
       </div>
-      <button className={Style.leaveRoomBtn} onClick={onLeaveRoom}>
+      <button className={Style.leaveRoomBtn} onClick={() => onLeaveRoom}>
         Leave room
       </button>
     </div>

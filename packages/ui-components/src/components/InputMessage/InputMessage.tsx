@@ -4,7 +4,6 @@ type InputMessageProps = {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  // handleSendMessage: (input: string) => void;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const InputMessage: React.FC<InputMessageProps> = ({

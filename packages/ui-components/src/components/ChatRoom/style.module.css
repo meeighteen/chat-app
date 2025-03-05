@@ -1,0 +1,66 @@
+.chatRoom {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  width: -webkit-fill-available;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  margin: 10px;
+}
+
+.bodyChatRoomContainer {
+  display: flex;
+  height: 100%;
+}
+
+.bodyChatRoom {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  gap: 3px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  border: none;
+  scrollbar-width: thin;
+}
+
+.sendButtonIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.footerWindowChat {
+  display: flex;
+  padding: 5px;
+  gap: 3px;
+  background: linear-gradient(180deg, #0a0a0a 100%, #2d2d2d 0%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.menuProfile {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  display: flex;
+}
+
+.isExpanded {
+  opacity: 1;
+  &.bodyChatRoom {
+    opacity: 0;
+  }
+}

@@ -12,7 +12,7 @@ export const NicknameUser: React.FC<NicknameUserProps> = ({
 }) => {
   return (
     <div className={Style.nicknameModal}>
-      <label>Create a nickname</label>
+      <label className={Style.nicknameLabel}>Create a nickname</label>
       <InputMessage
         value={value}
         onChange={onChange}
@@ -20,7 +20,7 @@ export const NicknameUser: React.FC<NicknameUserProps> = ({
         maxLength={15}
       />
       <button type="submit" className={Style.sendNicknameBtn}>
-        Send
+        Let's chat
       </button>
     </div>
   );
