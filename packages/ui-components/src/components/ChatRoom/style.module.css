@@ -11,7 +11,6 @@
   transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out; /* Add transition */
 }
 
-
 .bodyChatRoomContainer.blurEffect {
   opacity: 0.5;
   pointer-events: none;
@@ -56,4 +55,35 @@
   background: linear-gradient(180deg, #0a0a0a 100%, #2d2d2d 0%);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.footerWindowChat.blurEffect {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: blur(5px);
+}
+
+.hallRoom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  gap: 3px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  border: none;
+  scrollbar-width: thin;
+
+  align-items: center;
+}
+
+.roomBtn {
+  width: 100px;
+  border-radius: 20px;
+  border: none;
+  background-color: green;
+  color: white;
+  cursor: pointer;
 }

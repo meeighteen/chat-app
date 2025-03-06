@@ -13,6 +13,7 @@ interface ChatRoomProps {
   readonly roomName: string;
   readonly ProfileMenuProps: ComponentProps<typeof ProfileMenu>;
   readonly emitMessage: (roomID: string, userID: string, input: string) => void;
+  readonly handleJoinRoom: (roomName: string, username: string) => void;
 }
 
 export const ChatRoom: React.FC<ChatRoomProps> = ({
@@ -20,9 +21,18 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
   roomName,
   ProfileMenuProps,
   emitMessage,
+  handleJoinRoom,
 }) => {
   const [input, setInput] = useState("");
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
+  const [roomsDefault, setRoomsDefault] = useState<Array<string>>([
+    "Global",
+    "Latinoamerica",
+    "Musica",
+    "Deportes",
+    "Games",
+  ]);
 
   const handleChangeInputMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -54,7 +64,9 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
     console.log("Like icon clicked");
   };
 
-  const handleButtonSearch = () => {};
+  const handleButtonSearch = () => {
+    setIsOpenSearch(!isOpenSearch);
+  };
 
   return (
     <>
@@ -70,12 +82,18 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
           ProfileMenuProps={ProfileMenuProps}
           isOpenMenuProfile={isOpenMenu}
           setIsOpenMenuProfile={setIsOpenMenu}
+          isOpenMenuSearch={isOpenSearch}
+          setIsOpenMenuSearch={setIsOpenSearch}
+          roomsDefault={roomsDefault}
+          joinRoom={handleJoinRoom}
         />
-        <div className={cx({
-          [Style.bodyChatRoomContainer]: true,
-          [Style.blurEffect]: isOpenMenu,
-        })}>
-          <div className={Style.bodyChatRoom}>
+        <div
+          className={cx({
+            [Style.bodyChatRoomContainer]: true,
+            [Style.blurEffect]: isOpenMenu || isOpenSearch,
+          })}
+        >
+          <div className={cx({ [Style.bodyChatRoom]: true })}>
             {messages
               .slice()
               .reverse()
@@ -91,7 +109,10 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
 
         <form
           onSubmit={handleSubmitInputMessage}
-          className={Style.footerWindowChat}
+          className={cx({
+            [Style.footerWindowChat]: true,
+            [Style.blurEffect]: isOpenMenu || isOpenSearch,
+          })}
         >
           <InputMessage
             value={input}

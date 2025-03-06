@@ -18,7 +18,7 @@ const SocketContext = createContext<SocketContextType | undefined>(undefined);
 export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [currentRoomId, setCurrentRoomId] = useState<string>("roomDefault");
+  const [currentRoomId, setCurrentRoomId] = useState<string>("");
   const [userId, setUserId] = useState<string>("");
 
   socket.connect();

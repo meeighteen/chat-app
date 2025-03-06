@@ -1,5 +1,5 @@
 .messageBox {
-  width: 100% auto;
+  max-width: 200px;
   height: auto;
   padding: 5px;
   border: none;
@@ -7,15 +7,23 @@
   background-color: lightblue;
   align-items: center;
   align-content: center;
+
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
-.messageBox__ingoing{
+.messageBox__ingoing {
   background-color: lightgreen;
 }
 
 .paragraphMessage {
   padding: 1px 5px;
   margin: 0;
-  font-family: sans-serif, Arial;
+  font-family: var(--font-family);
   font-size: 1.2rem;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical; */
 }

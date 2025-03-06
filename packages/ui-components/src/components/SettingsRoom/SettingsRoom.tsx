@@ -11,35 +11,60 @@ type SettingsRoomProps = {
   ProfileMenuProps: ComponentProps<typeof ProfileMenu>;
   isOpenMenuProfile: boolean;
   setIsOpenMenuProfile: (isOpen: boolean) => void;
+  isOpenMenuSearch: boolean;
+  setIsOpenMenuSearch: (isOpen: boolean) => void;
+  roomsDefault: Array<string>;
+  joinRoom: (roomName: string, username: string) => void;
 };
 export const SettingsRoom: React.FC<SettingsRoomProps> = ({
   roomName,
   handleButtonSearch,
   ProfileMenuProps: { isConnected, username, profileStatusText, onLeaveRoom },
   isOpenMenuProfile,
-  setIsOpenMenuProfile
+  setIsOpenMenuProfile,
+  isOpenMenuSearch,
+  setIsOpenMenuSearch,
+  roomsDefault,
+  joinRoom,
 }) => {
-  const menuRef = useRef<HTMLDivElement>(null);
+  const menuSearchRef = useRef<HTMLDivElement>(null);
+  const menuProfileRef = useRef<HTMLDivElement>(null);
 
   const handleButtonMenu = () => {
     setIsOpenMenuProfile(!isOpenMenuProfile);
   };
 
+  const handleClickRoom = (event: React.MouseEvent<HTMLElement>) => {
+    const roomNameCatch = event.currentTarget.textContent || "";
+    setIsOpenMenuSearch(!isOpenMenuSearch);
+    joinRoom(roomNameCatch, username);
+  };
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        menuSearchRef.current &&
+        !menuSearchRef.current.contains(event.target as Node)
+      ) {
+        setIsOpenMenuSearch(false);
+      }
+
+      if (
+        menuProfileRef.current &&
+        !menuProfileRef.current.contains(event.target as Node)
+      ) {
         setIsOpenMenuProfile(false);
       }
     }
 
-    if (isOpenMenuProfile) {
+    if (isOpenMenuSearch || isOpenMenuProfile) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpenMenuProfile]);
+  }, [isOpenMenuProfile, isOpenMenuSearch]);
 
   return (
     <div className={Style.topWindowChat}>
@@ -49,7 +74,7 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
         </button>
       </div>
       <div className={Style.boxRoomName}>
-        <div className={Style.roomName}>{roomName}</div>
+        <div className={Style.roomName}>{`#${roomName}`}</div>
         <div className={Style.status}></div>
       </div>
       <div>
@@ -62,7 +87,7 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
           [Style.menuProfile]: true,
           [Style.isExpanded]: isOpenMenuProfile,
         })}
-        ref={menuRef}
+        ref={menuProfileRef}
       >
         <ProfileMenu
           onLeaveRoom={onLeaveRoom}
@@ -70,6 +95,39 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
           username={username}
           profileStatusText={profileStatusText}
         />
+      </div>
+
+      <div
+        className={cx({
+          [Style.menuRooms]: true,
+          [Style.isExpanded]: isOpenMenuSearch,
+        })}
+        ref={menuSearchRef}
+      >
+        <table className={Style.listRoomsCard}>
+          <thead>
+            <tr>
+              <th>List of Rooms</th>
+            </tr>
+          </thead>
+          <tbody>
+            {roomsDefault.map((room, index) => (
+              <tr key={index}>
+                <td>
+                  <button
+                    className={cx({
+                      [Style.menuBtn]: true,
+                      [Style.buttonRoom]: true,
+                    })}
+                    onClick={(e) => handleClickRoom(e)}
+                  >
+                    {room}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

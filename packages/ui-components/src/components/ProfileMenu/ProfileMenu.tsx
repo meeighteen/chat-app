@@ -18,8 +18,8 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({
   return (
     <div className={Style.profileMenuSection}>
       <div className={Style.profileCard}>
-        <h2>Profile</h2>
-        <div className={Style.customBorder}>
+        <h3>Profile Info</h3>
+        <div>
           <img
             src="https://wallpapers.com/images/featured-full/cool-profile-picture-87h46gcobjl5e4xu.jpg"
             alt="profile"
@@ -34,17 +34,24 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({
             }
           ></div>
         </div>
-        <div className={Style.profileName}>{username}</div>
+        <div className={Style.profileName}>
+          <div className={Style.countryInfo}>
+            <MapIconSVG width={20} height={20} />
+            <div className={Style.flagCountry}>{`🇵🇪`}</div>
+          </div>
+          <div style={{ height: "20px", alignContent:"center"
+           }}>{username}</div>
+        </div>
         <p className={Style.profileStatusText}>
           <MessageBoxIcon className={Style.messageBoxIcon} />
           {`"${profileStatusText}"`}
         </p>
-        <div className={Style.countryInfo}>
-          <MapIconSVG />
-          <span>🇵🇪</span>
-        </div>
       </div>
-      <button className={Style.leaveRoomBtn} onClick={() => onLeaveRoom} disabled>
+      <button
+        className={Style.leaveRoomBtn}
+        onClick={() => onLeaveRoom}
+        disabled
+      >
         Leave room
       </button>
     </div>

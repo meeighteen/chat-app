@@ -1,7 +1,6 @@
 .profileMenuSection {
   display: flex;
   flex-direction: column;
-  /* width: 250px; */
   gap: 20px;
   font-family: var(--font-family);
 }
@@ -16,6 +15,7 @@
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   gap: 10px;
+  min-width: 200px;
 }
 
 .profilePicture {
@@ -24,8 +24,14 @@
   border-radius: 15px;
 }
 
-.profileName{
+.profileName {
   font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 20px;
 }
 
 .status {
@@ -57,15 +63,15 @@
   font-weight: bold;
 }
 
-.socialNetwork {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .countryInfo {
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 20px;
+}
+
+.flagCountry{
+  display: flex;
 }
 
 .profileStatusText {

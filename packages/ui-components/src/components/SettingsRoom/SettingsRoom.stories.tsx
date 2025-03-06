@@ -7,22 +7,32 @@ export default {
   title: "ChatRoom/SettingsRoom",
   component: SettingsRoom,
   argTypes: {},
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
-  }
+    layout: "fullscreen",
+  },
 } satisfies Meta<typeof SettingsRoom>;
 
 type Story = StoryObj<typeof SettingsRoom>;
 
 export const Default: Story = {
   args: {
-    username: "Test User",
-    handleButtonMenu: () => {
-      console.log("handleButtonMenu")
-    },
+    roomName: "Test User",
     handleButtonSearch: () => {
-      console.log("handleButtonSearch")
+      console.log("handleButtonSearch");
     },
+    ProfileMenuProps: {
+      isConnected: true,
+      username: "Test User",
+      profileStatusText: "Online",
+      onLeaveRoom: () => {
+        console.log("onLeaveRoom");
+      },
+    },
+    joinRoom: (roomName) => {
+      console.log(`joinRoom to ${roomName}`);
+    },
+    roomsDefault: ["Global", "Peru", "Deportes"],
+    isOpenMenuProfile: false,
   },
 };

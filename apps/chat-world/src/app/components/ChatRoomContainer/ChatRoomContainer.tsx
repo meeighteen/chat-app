@@ -15,13 +15,13 @@ export const ChatRoomContainer: React.FC = () => {
     userId: userID,
     emitMessage,
     leaveRoom,
+    joinRoom,
   } = useSocket();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     socket.on("message", ({ user, text }: { user: string; text: string }) => {
-      console.log(`message from ${user} to ${userID}`);
       const type = userID === user ? "outgoing" : "ingoing";
       sendMessage(user, text, type);
     });
@@ -45,6 +45,7 @@ export const ChatRoomContainer: React.FC = () => {
             profileStatusText: "I'm a software engineer",
             onLeaveRoom: leaveRoom,
           }}
+          handleJoinRoom={joinRoom}
         />
       )}
     </div>

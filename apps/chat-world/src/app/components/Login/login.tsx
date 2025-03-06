@@ -18,9 +18,8 @@ export const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (nickname === "") return;
-    // set the usernameContext in socket
     setUserId(nickname);
-    joinRoom("roomDefault", nickname);
+    joinRoom("Global", nickname);
     setIsAuthenticated(true);
     setNickname("");
   };
