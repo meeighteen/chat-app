@@ -14,36 +14,84 @@ type MessageItemProps = {
 const TypeMessage: Record<string, string> = {
   INGOING: "ingoing",
   OUTGOING: "outgoing",
+  NEWUSER: "newuser",
 };
 
 export const MessageItem: React.FC<MessageItemProps> = ({
-  message: { id, text, type = "" },
+  message: { id, text, type = "", timestamp },
   onClickLikeIcon,
 }) => {
   const [isLikedMessage, setIsLikedMessage] = useState(false);
+  const [isDetailedMessage, setIsDetailedMessage] = useState(false);
   const handleOnClickLikeBtn = () => {
     setIsLikedMessage(!isLikedMessage);
     onClickLikeIcon();
   };
 
-  const isIngoingMessage = Boolean(type === TypeMessage.INGOING);
+  const handleOnClickMessage = () => {
+    setIsDetailedMessage(!isDetailedMessage);
+  };
 
-  return (
+  const date = new Date(timestamp);
+
+  const formattedDate = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  }).format(date);
+
+  const isIngoingMessage = type === TypeMessage.INGOING;
+  const RenderUserMessage = () => (
     <div
-      className={Style.messageChat}
+      className={Style.messageWithTime}
       style={{
-        flexDirection: isIngoingMessage ? "row" : "row-reverse",
+        textAlign: isIngoingMessage ? "left" : "right",
       }}
     >
-      <YoungAvatarIcon className={Style.profileAvatarIcon} />
-      <MessageBox key={id} text={text} isIngoing={isIngoingMessage} />
-      <LikeIconSVG
+      <div
+        className={Style.messageChat}
+        style={{
+          flexDirection: isIngoingMessage ? "row" : "row-reverse",
+        }}
+      >
+        <YoungAvatarIcon className={Style.profileAvatarIcon} />
+        <div onClick={handleOnClickMessage} style={{ cursor: "pointer" }}>
+          <MessageBox key={id} text={text} typeMessage={type} />
+        </div>
+        {/* <LikeIconSVG
         className={cx({
           [Style.likeIcon]: true,
           [Style.likeIcon__active]: isLikedMessage,
         })}
         onClick={handleOnClickLikeBtn}
-      />
+      /> */}
+      </div>
+      {isDetailedMessage && (
+        <p
+          style={{
+            paddingRight: !isIngoingMessage ? "50px" : "0",
+            paddingLeft: isIngoingMessage ? "50px" : "0",
+          }}
+        >
+          {formattedDate}
+        </p>
+      )}
     </div>
+  );
+
+  const RenderSystemMessage = () => (
+    <div className={Style.systemMessage}>
+      <p>{formattedDate}</p>
+      <MessageBox key={id} text={text} typeMessage={TypeMessage.NEWUSER} />
+    </div>
+  );
+
+  return Boolean(type === TypeMessage.NEWUSER) ? (
+    <RenderSystemMessage />
+  ) : (
+    <RenderUserMessage />
   );
 };

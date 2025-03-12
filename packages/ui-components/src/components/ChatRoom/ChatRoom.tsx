@@ -14,6 +14,7 @@ interface ChatRoomProps {
   readonly ProfileMenuProps: ComponentProps<typeof ProfileMenu>;
   readonly emitMessage: (roomID: string, userID: string, input: string) => void;
   readonly handleJoinRoom: (roomName: string, username: string) => void;
+  readonly handleSetCurrentRoom: (roomName: string) => void;
 }
 
 export const ChatRoom: React.FC<ChatRoomProps> = ({
@@ -22,6 +23,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
   ProfileMenuProps,
   emitMessage,
   handleJoinRoom,
+  handleSetCurrentRoom,
 }) => {
   const [input, setInput] = useState("");
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -86,6 +88,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
           setIsOpenMenuSearch={setIsOpenSearch}
           roomsDefault={roomsDefault}
           joinRoom={handleJoinRoom}
+          handleSetCurrentRoom={handleSetCurrentRoom}
         />
         <div
           className={cx({

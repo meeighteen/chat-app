@@ -8,11 +8,12 @@ export interface Message {
   text: string;
   type: string;
   timestamp: number;
+  room: string;
 }
 
 interface ChatContextType {
   messages: Message[];
-  sendMessage: (user: string, text: string, type: string) => void;
+  sendMessage: (user: string, text: string, type: string, room: string) => void;
 }
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
@@ -22,13 +23,19 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [messages, setMessages] = useState<Message[]>([]);
 
-  const sendMessage = (user: string, text: string, type: string) => {
+  const sendMessage = (
+    user: string,
+    text: string,
+    type: string,
+    room: string
+  ) => {
     const newMessage = {
       id: Date.now().toString(),
       user,
       text,
       timestamp: Date.now(),
       type,
+      room,
     };
 
     setMessages([...messages, newMessage]);

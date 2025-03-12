@@ -15,6 +15,7 @@ type SettingsRoomProps = {
   setIsOpenMenuSearch: (isOpen: boolean) => void;
   roomsDefault: Array<string>;
   joinRoom: (roomName: string, username: string) => void;
+  handleSetCurrentRoom: (roomName: string) => void;
 };
 export const SettingsRoom: React.FC<SettingsRoomProps> = ({
   roomName,
@@ -26,6 +27,7 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
   setIsOpenMenuSearch,
   roomsDefault,
   joinRoom,
+  handleSetCurrentRoom,
 }) => {
   const menuSearchRef = useRef<HTMLDivElement>(null);
   const menuProfileRef = useRef<HTMLDivElement>(null);
@@ -35,9 +37,10 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
   };
 
   const handleClickRoom = (event: React.MouseEvent<HTMLElement>) => {
-    const roomNameCatch = event.currentTarget.textContent || "";
+    const roomNameSelected = event.currentTarget.textContent || "";
     setIsOpenMenuSearch(!isOpenMenuSearch);
-    joinRoom(roomNameCatch, username);
+    joinRoom(roomNameSelected, username);
+    handleSetCurrentRoom(roomNameSelected);
   };
 
   useEffect(() => {

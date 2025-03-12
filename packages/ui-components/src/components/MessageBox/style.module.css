@@ -4,7 +4,6 @@
   padding: 5px;
   border: none;
   border-radius: 20px;
-  background-color: lightblue;
   align-items: center;
   align-content: center;
 
@@ -13,8 +12,17 @@
   overflow-wrap: break-word;
 }
 
-.messageBox__ingoing {
-  background-color: lightgreen;
+.ingoing {
+  background-color: #c0dbab;
+}
+
+.outgoing {
+  background-color: #d9c777;
+}
+
+.newuser {
+  background-color: #ebebeb;
+  
 }
 
 .paragraphMessage {

@@ -4,14 +4,19 @@ import Style from "./style.module.css";
 
 type MessageBoxProps = {
   text: string;
-  isIngoing: boolean;
+  typeMessage?: string;
 };
 
-export const MessageBox: React.FC<MessageBoxProps> = ({ text, isIngoing }) => {
+export const MessageBox: React.FC<MessageBoxProps> = ({
+  text,
+  typeMessage,
+}) => {
   return (
     <div
       className={cx({
-        [Style.messageBox__ingoing]: isIngoing,
+        [Style.ingoing]: typeMessage === "ingoing",
+        [Style.outgoing]: typeMessage === "outgoing",
+        [Style.newuser]: typeMessage === "newuser",
         [Style.messageBox]: true,
       })}
     >

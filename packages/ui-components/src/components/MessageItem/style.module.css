@@ -4,6 +4,18 @@
   gap: 10px;
 }
 
+.messageWithTime{
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+}
+
+.systemMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .profileAvatarIcon {
   height: 35px;
   width: 35px;

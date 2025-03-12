@@ -4,4 +4,5 @@ export type Message = {
   text: string;
   timestamp: number;
   type: string;
+  room: string;
 };

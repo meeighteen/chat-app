@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { ChatRoom } from "@packages/ui-components";
 import { useChat } from "@/app/context/ChatContext";
 import { socket } from "@/app/utils/socket";
@@ -12,6 +12,7 @@ export const ChatRoomContainer: React.FC = () => {
   const { messages, sendMessage } = useChat();
   const {
     currentRoomId: roomID,
+    setCurrentRoomId: setSelectedRoom,
     userId: userID,
     emitMessage,
     leaveRoom,
@@ -20,13 +21,23 @@ export const ChatRoomContainer: React.FC = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    socket.on("message", ({ user, text }: { user: string; text: string }) => {
+  const handleMessage = useCallback(
+    ({ user, text, room }: { user: string; text: string; room: string }) => {
       const type = userID === user ? "outgoing" : "ingoing";
-      sendMessage(user, text, type);
-    });
+      console.log("handleMessage", user, text, type, room);
+      sendMessage(user, text, type, room);
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [messages, userID]);
+    [userID, messages] // Dependencies
+  );
+
+  useEffect(() => {
+    socket.on("message", handleMessage);
+
+    return () => {
+      socket.off("message", handleMessage); // Cleanup to prevent memory leaks
+    };
+  }, [handleMessage]); // Dependency on `handleMessage`
 
   return (
     <div className={Style.containerChat}>
@@ -36,16 +47,17 @@ export const ChatRoomContainer: React.FC = () => {
         </div>
       ) : (
         <ChatRoom
-          messages={messages}
+          messages={messages.filter((message) => message.room == roomID)}
           roomName={roomID}
           emitMessage={emitMessage}
           ProfileMenuProps={{
             username: userID,
             isConnected: true,
-            profileStatusText: "I'm a software engineer",
+            profileStatusText: "I am just enjoing this!",
             onLeaveRoom: leaveRoom,
           }}
           handleJoinRoom={joinRoom}
+          handleSetCurrentRoom={setSelectedRoom}
         />
       )}
     </div>
