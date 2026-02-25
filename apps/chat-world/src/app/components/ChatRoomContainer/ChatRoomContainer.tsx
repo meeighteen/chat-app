@@ -22,8 +22,11 @@ export const ChatRoomContainer: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleMessage = useCallback(
-    ({ user, text, room }: { user: string; text: string; room: string }) => {
-      const type = userID === user ? "outgoing" : "ingoing";
+    ({ user, text="", room, isNew=false }: { user: string; text: string; room: string, isNew: boolean }) => {
+      let type;
+      if(isNew) type = "newuser";
+      else 
+        type = userID === user ? "outgoing" : "ingoing";
       console.log("handleMessage", user, text, type, room);
       sendMessage(user, text, type, room);
     },
