@@ -44,7 +44,7 @@ export const ChatRoomContainer: React.FC = () => {
 
   return (
     <div className={Style.containerChat}>
-      {!isAuthenticated ? (
+      {!isAuthenticated && !roomID ? (
         <div className={Style.login}>
           <Login setIsAuthenticated={setIsAuthenticated} />
         </div>

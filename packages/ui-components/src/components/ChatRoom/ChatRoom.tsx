@@ -45,14 +45,16 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({
   ) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      handleSendMessage(input);
-      setInput("");
+      if (input.length > 0) {
+        handleSendMessage(input);
+        setInput("");
+      }
     }
   };
 
   const handleSubmitInputMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input !== "") {
+    if (input.length > 0) {
       handleSendMessage(input);
       setInput("");
     }

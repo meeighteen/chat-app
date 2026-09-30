@@ -29,7 +29,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #00ff00;
+  background-color: var(--status-color);
   margin-left: 10px;
 }
 
@@ -51,10 +51,12 @@
   pointer-events: none;
   z-index: 10;
 }
+
 .menuProfile.isExpanded {
   opacity: 1;
   pointer-events: auto;
 }
+
 .menuRooms {
   position: absolute;
   top: 50%;
@@ -67,6 +69,7 @@
   z-index: 10;
   font-family: var(--font-family);
 }
+
 .menuRooms.isExpanded {
   opacity: 1;
   pointer-events: auto;

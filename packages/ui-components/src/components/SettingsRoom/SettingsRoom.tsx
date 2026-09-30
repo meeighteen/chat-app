@@ -68,6 +68,8 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpenMenuProfile, isOpenMenuSearch]);
+  // TODO: Add a function to check if the user is in the room, and change the color of the status indicator accordingly.
+  const isJoinedRoom = roomsDefault.includes(roomName);
 
   return (
     <div className={Style.topWindowChat}>
@@ -78,7 +80,14 @@ export const SettingsRoom: React.FC<SettingsRoomProps> = ({
       </div>
       <div className={Style.boxRoomName}>
         <div className={Style.roomName}>{`#${roomName}`}</div>
-        <div className={Style.status}></div>
+        <div
+            className={Style.status}
+            style={
+              {
+                "--status-color": isJoinedRoom ? "#2cc069" : "#bc0900",
+              } as React.CSSProperties
+            }
+        />
       </div>
       <div>
         <button className={Style.menuBtn} onClick={handleButtonMenu}>

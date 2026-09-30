@@ -1,12 +1,14 @@
 import MapIconSVG from "../icons-svg/mapsIconSVG";
 import MessageBoxIcon from "../icons-svg/messageBoxIconSVG";
+import { useSocket } from "../../../../../apps/chat-world/src/app/context/SocketContex";
 import Style from "./style.module.css";
+import { useState } from "react";
 
 type ProfileMenuProps = {
   username: string;
   isConnected: boolean;
   profileStatusText: string;
-  onLeaveRoom: (roomID: string, userID: string) => void;
+  onLeaveRoom: (roomID?: string) => void;
 };
 
 export const ProfileMenu: React.FC<ProfileMenuProps> = ({
@@ -32,7 +34,7 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({
                 "--status-color": isConnected ? "#2cc069" : "#bc0900",
               } as React.CSSProperties
             }
-          ></div>
+          />
         </div>
         <div className={Style.profileName}>
           <div className={Style.countryInfo}>
@@ -49,8 +51,9 @@ export const ProfileMenu: React.FC<ProfileMenuProps> = ({
       </div>
       <button
         className={Style.leaveRoomBtn}
-        onClick={() => onLeaveRoom}
-        disabled
+        onClick={() => {
+          onLeaveRoom();
+        }}
       >
         Leave room
       </button>
